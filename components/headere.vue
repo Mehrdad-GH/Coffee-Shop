@@ -1,5 +1,5 @@
 <template>
-  <h1>this is head</h1>
+  <h1>سلام</h1>
 </template>
 
 <script>
