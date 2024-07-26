@@ -13,4 +13,9 @@
 
 *{
     font-family: 'Morabba';
+    direction: rtl;
+}
+
+.color-primary {
+    color: #9E624C;
 }
