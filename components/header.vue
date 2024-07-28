@@ -21,9 +21,9 @@
         </button>
 
         <button
-          class="border-2 bg-[#9E624C] text-white border-black mr-5 p-4 rounded-full hover:bg-white hover:text-[#9E624C] duration-200"
+          class="border-2 bg-[#9E624C] text-white border-black mr-5 p-2 rounded-full hover:bg-white hover:text-[#9E624C] duration-200"
         >
-          <font-awesome class="text-2xl" transform="down-2 right-1" :icon="faCartShopping" />
+          <font-awesome class="text-xl" transform="down-2 right-1" :icon="faCartShopping" />
         </button>
       </div>
     </div>
@@ -91,14 +91,5 @@ const hideMegaMenu = () => {
 </script>
 
 <style scoped>
-.mega-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  color: black;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+
 </style>
