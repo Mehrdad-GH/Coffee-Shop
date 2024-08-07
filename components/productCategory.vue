@@ -2,7 +2,7 @@
   <div class="mb-96">
     <div class="mx-20 flex justify-between">
       <div class="flex">
-        <img src="/icons/coffeeBean.png" alt="" />
+        <!-- <img src="/icons/coffeeBean.png" alt="" /> -->
         <div class="mr-3">
           <h1 class="text-3xl font-black">دسته بندی محصولات</h1>
           <h2>از میان بهترین ها ، بهترین هارا برای شما فراهم کرده ایم!</h2>
@@ -46,8 +46,7 @@
 </template>
 
 <script setup>
-import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+
 
 const category = [
   {title: "قهوه ساز ها" , icon : ""}

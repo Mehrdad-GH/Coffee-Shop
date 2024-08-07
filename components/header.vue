@@ -6,7 +6,9 @@
           <span class="color-primary">-۰۲۱</span><br />
           ۱۲۳۴۵۲۱۶۲
         </h1>
-        <img src="/icons/coffee.png" alt="" />
+        <div class="bg-[#F2E5DA] p-3 rounded-full mr-2 shadow-md shadow-slate-400">
+        <PhosphorIconCoffeeBean :size="32" color="#9E624C" weight="fill" />
+        </div>
       </div>
 
       <div>
@@ -21,7 +23,7 @@
         </button>
 
         <button
-          class="border-2 bg-[#9E624C] text-white border-black mr-5 p-2 rounded-full hover:bg-white hover:text-[#9E624C] duration-200"
+          class="border-2 bg-primary text-white border-black mr-5 p-2 rounded-full hover:bg-white hover:text-[#9E624C] duration-200"
         >
           <font-awesome class="text-xl" transform="down-2 right-1" :icon="faCartShopping" />
         </button>
