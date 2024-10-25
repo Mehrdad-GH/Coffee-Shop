@@ -43,7 +43,7 @@
             @mouseenter="flag.value = true"
             @mouseleave="flag.value = flase"
             :class="flag.value ? 'false' : 'hidden'"
-            class="absolute group-hover:block bg-[#38322E] mt-5 text-white rounded-lg p-3"
+            class="absolute group-hover:block bg-[#38322E] mt-5 text-white rounded-lg p-3 z-10"
           >
             <li class="py-1 px-5 hover:bg-[#28221E] rounded">محصول ۱</li>
             <li class="py-1 px-5 hover:bg-[#28221E] rounded">محصول ۲</li>

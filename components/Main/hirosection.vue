@@ -5,7 +5,7 @@
     >
       <div class="flex text-4xl font-extrabold">
         اریک کافه
-        <NuxtImg class="-translate-y-4 translate-x-2" src="/leaf.png" />
+        <NuxtImg class="-translate-y-4 translate-x-2 w-10 " src="/leaf.png" />
       </div>
 
       <div class="text-right text-md font-light">
