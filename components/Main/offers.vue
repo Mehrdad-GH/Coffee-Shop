@@ -1,25 +1,29 @@
 <template>
   <div class="mt-20 mb-32">
     <div class="">
-      <h1 class="absolute text-white right-1/2 translate-x-1/2 mt-5 text-3xl">
+      <h1 class="absolute text-white right-1/2 translate-x-1/2 mt-5 text-2xl sm:text-3xl text-center">
         تخفیفات ویژه
       </h1>
-      <NuxtImg class="absolute px-28 -z-10" src="/offerBg.png" />
+      <NuxtImg class="absolute px-6 sm:px-16 lg:px-28 -z-10" src="/offerBg.png" />
     </div>
 
-    <div class="z-0 mx-40 pt-28">
-      <div class="bg-white rounded-xl pt-10 shadow-md px-28">
-        <div class="flex items-center border-b">
-          <h1>دسته بندی ها</h1>
+    <div class="z-0 mx-4 sm:mx-10 lg:mx-40 pt-24 sm:pt-28">
+      <div class="bg-white relative rounded-xl pt-8 sm:pt-10 shadow-md px-4 sm:px-10 lg:px-28 max-xl:px-16">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center border-b">
+          <h1 class="text-sm">دسته بندی ها</h1>
           <UTabs
             @change="tabChange"
             :items="tabTitle"
             :ui="{
+              wrapper: 'relative space-y-2',
               list: {
+                padding: 'p-0',
                 background: '',
-
                 tab: {
+                  base:'max-xl:w-fit',
                   active: 'text-[#9E624C]',
+                  padding: 'max-xl:px-0',
+                  size:'text-sm xl:text-md'
                 },
                 marker: {
                   wrapper: ' mt-10 rounded-full ',
@@ -30,9 +34,10 @@
             }"
           />
         </div>
+     
         <UButton
           @click="goPrevSlide"
-          class="absolute right-[13%] mt-56 px-2 py-2 rounded-xl bg-rose-100 text-black shadow-md duration-75 hover:bg-rose-200"
+          class="absolute top-1/2 right-10 px-2 py-2 rounded-xl bg-rose-100 text-black shadow-md duration-75 hover:bg-rose-200 max-xl:right-3"
         >
           <UIcon
             size="22"
@@ -42,7 +47,8 @@
         <Swiper
           ref="swiperRef"
           :modules="[SwiperAutoplay]"
-          :slides-per-view="3"
+          :slides-per-view="1"
+          :breakpoints="offersBreakpoints"
           space-between="25"
           :loop="true"
           :rtl="true"
@@ -54,17 +60,17 @@
         >
           <SwiperSlide class="text-center text-black" v-for="card in cards">
             <div
-              class="flex relative flex-col items-start border-2 rounded-2xl my-10 py-10 px-12"
+              class="flex relative flex-col items-start border-2 rounded-2xl my-10 py-10 px-12 max-xl:px-5"
             > 
             
             <div v-if="!loading" class="bg-black absolute top-0 text-white px-2 rounded-full left-0 mt-5 ml-5">{{ card.off }}%</div>
               <USkeleton
-                class="h-52 w-full self-center bg-contain mb-10"
+                class="h-52 w-full self-center bg-contain mb-10 max-xl:h-32"
                 v-if="loading"
               />
               <NuxtImg v-else class="self-center w-1/2 mb-10" :src="card.img" />
               <USkeleton class="w-full h-5" v-if="loading" />
-              <h1 v-else>{{ card.title }}</h1>
+              <h1 class="max-xl:text-sm" v-else>{{ card.title }}</h1>
               <USkeleton v-if="loading" class="w-1/3 h-4 mt-3" />
               <h3 v-else class="text-gray-500 font-light">
                 {{ card.category }}
@@ -83,11 +89,12 @@
           </SwiperSlide>
         </Swiper>
         <UButton
-          class="absolute left-[13%] -mt-64 -translate-y-5 px-2 py-2 rounded-xl bg-rose-100 text-black shadow-md duration-75 hover:bg-rose-200"
+          class="absolute top-1/2 left-10 px-2 py-2 rounded-xl bg-rose-100 text-black shadow-md duration-75 hover:bg-rose-200 max-xl:left-3"
           @click="goNextSlide"
         >
           <UIcon size="22" name="material-symbols-light:arrow-back-ios-new" />
         </UButton>
+
       </div>
     </div>
   </div>
@@ -95,6 +102,14 @@
 <script setup>
 const swiperRef = ref(null);
 const loading = ref(false);
+const offersBreakpoints = {
+  640: {
+    slidesPerView: 2
+  },
+  1024: {
+    slidesPerView: 3
+  }
+}
 
 // Save swiper instance reference
 const onSwiper = (swiperInstance) => {

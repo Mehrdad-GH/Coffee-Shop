@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 mx-16">
+  <div class="mt-5 mx-16 max-lg:hidden">
     <div class="flex justify-between items-center">
       <div class="text-left text-lg flex items-center">
         <h1>
@@ -40,10 +40,7 @@
             name="material-symbols:keyboard-arrow-down-rounded"
           />
           <ul
-            @mouseenter="flag.value = true"
-            @mouseleave="flag.value = flase"
-            :class="flag.value ? 'false' : 'hidden'"
-            class="absolute group-hover:block bg-[#38322E] mt-5 text-white rounded-lg p-3 z-10"
+            class="absolute hidden group-hover:block bg-[#38322E] mt-5 text-white rounded-lg p-3 z-10 min-w-max"
           >
             <li class="py-1 px-5 hover:bg-[#28221E] rounded">محصول ۱</li>
             <li class="py-1 px-5 hover:bg-[#28221E] rounded">محصول ۲</li>
@@ -62,8 +59,46 @@
       </div>
     </div>
   </div>
+
+  <div class="hidden max-lg:flex justify-between mx-8 items-center">
+    <button
+      class="bg-[#F2E5DA] mr-7 mt-7 px-2 rounded-full border-black border-2 hover:border-[#F2E5DA] duration-500"
+      @click="drawerOpen=!drawerOpen"
+    >
+      <UIcon class="mt-2" size="23" name="fa6-solid:bars-staggered" />
+    </button>
+    <NuxtLink to="/"><NuxtImg class="h-10" src="/logo.png" /></NuxtLink>
+    <UButton
+      class="rounded-full bg-Primary px-3 py-3 mt-5 border-2 hover:bg-white hover:text-black hover:border-black duration-500"
+      icon="ic:outline-shopping-bag"
+      :padded="false"
+    ></UButton>
+  </div>
+  <div
+    :class="[
+      'hidden max-lg:flex fixed inset-0 z-50 duration-700',
+      drawerOpen ? 'right-0' : '-right-full',
+    ]"
+  >
+    <div class="flex w-2/3 max-w-xs h-full bg-black text-white">
+      <UIcon
+        size="30"
+        name="material-symbols:keyboard-double-arrow-right-rounded"
+        class="mt-5 ml-3 cursor-pointer"
+        @click="drawerOpen = !drawerOpen"
+      />
+      <ul class="flex flex-col gap-7 mt-16 ml-5">
+        <li class="hover:text-stone-600 duration-300">صفحه اصلی</li>
+        <li class="hover:text-stone-600 duration-300">لیست محصولات</li>
+        <li class="hover:text-stone-600 duration-300">خدمات</li>
+        <li class="hover:text-stone-600 duration-300">آموزش ها</li>
+        <li class="hover:text-stone-600 duration-300">درباره ما</li>
+        <li class="hover:text-stone-600 duration-300">تماس با ما</li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script setup>
-const flag = ref(false);
+const drawerOpen = ref(false);
 </script>

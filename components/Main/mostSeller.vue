@@ -1,9 +1,9 @@
 <template>
-  <div class=" flex flex-col mb-20">
+  <div class="flex flex-col mb-20">
     <div
-      class="flex items-center justify-between mx-28 border-2 p-5 rounded-full"
+      class="flex items-center justify-between mx-4 sm:mx-10 lg:mx-28 border-2 p-4 sm:p-5 rounded-2xl max-xl:flex-col max-xl:gap-5"
     >
-      <div class="flex gap-5 items-center">
+      <div class="flex gap-5 items-center ">
         <UIcon
           size="40"
           class="text-Primary"
@@ -17,17 +17,17 @@
       <UTabs
       @change="tabChange"
         :ui="{
-          wrapper: 'relative space-y-0 ',
-          list: { background: 'bg-gray-200', rounded: 'rounded-xl' },
+          wrapper: 'relative space-y-0 px-1',
+          list: { background: 'bg-gray-200', rounded: 'rounded-xl' , tab:{padding: 'max-xl:px-2',}},
         }"
         :items="items"
       />
     </div>
-    <div class="flex flex-wrap gap-10 justify-center mt-4">
+    <div class="flex flex-wrap gap-6 lg:gap-10 justify-center mt-4 px-4 sm:px-0">
       <div
         v-for="i in 8"
         :key="i"
-        class="flex relative flex-col items-start w-1/5 border-2 rounded-2xl my-10 p-16"
+        class="flex relative flex-col items-start w-full sm:w-1/2 md:w-1/3 lg:w-1/5 border-2 rounded-2xl my-6 lg:my-10 p-8 md:p-10 lg:p-16 max-xl:px-7"
       >
         <div
           v-if="!loading"
